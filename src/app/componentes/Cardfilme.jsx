@@ -48,7 +48,7 @@ export default function Cardfilme({filme}){
         
             <span className="text-slate-400">{filme.nota}</span>
             </div>
-            <a href="#" className="bg-pink-600 w-full rounded text-center py-1 hover:bg-pink-900">Detalhes</a>
+            <a href="#" className="bg-orange-400 w-full rounded text-center py-1 hover:bg-orange-900">Detalhes</a>
        </div>
     )
 }

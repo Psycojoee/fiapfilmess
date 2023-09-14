@@ -8,23 +8,29 @@ export default function Home() {
   const filmes = [
     {
       id: 1,
-      titulo: "Star Wars",
+      titulo: "Jujutsu Kaisen",
       nota: 9.5,
-      poster: "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/vOUxo5sfXyQPIoF8rtYK1OVVBPi.jpg"
+      poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hFWP5HkbVEe40hrXgtCeQxoccHE.jpg"
     },
     {
       id: 2,
-      titulo: "Barbie",
-      nota: 9.0,
-      poster: "https://www.themoviedb.org/t/p/w94_and_h141_bestv2/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg"
+      titulo: "Naruto Shippuden",
+      nota: 1000,
+      poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/nRJmByfK9XdtOY73VArcN8KpKVs.jpg"
+    },
+    {
+      id: 2,
+      titulo: "Dragon Ball Super",
+      nota: 8.5,
+      poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qEUrbXJ2qt4Rg84Btlx4STOhgte.jpg"
     }
   ]
 
 
  return (
   <>
-   <nav className='bg-slate-900 text-zinc-100 p-2 flex gap-3 items-end'>
-    <h1 className='holtwood one sc font-bold '>NYA NIMES</h1>
+   <nav className='bg-black-500 text-orange-400 p-2 flex gap-3 items-end'>
+    <h1 className='holtwood one sc font-bold'>NYA NIMES</h1>
     <h2 className='holtwood one sc font-bold'>Favoritos</h2>
     <h3 className='holtwood one sc font-bold'>Lançamentos</h3>
     <h4 className='holtwood one sc font-bold'>Sobre</h4>
