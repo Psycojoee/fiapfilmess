@@ -6,6 +6,7 @@ import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline'
 
 export default function Cardfilme({filme}){
     const [ favorito, setFavorito ] = useState(false) //hooks
+    const image_url = "https://image.tmdb.org/t/p/w200/" + filme.poster_path
 
     useEffect( () => {
         let favoritos = JSON.parse (localStorage.getItem ("favoritos") ) || []
@@ -15,12 +16,44 @@ export default function Cardfilme({filme}){
 
     function favoritar(){
         setFavorito(true)
+
+        const options = {
+            method: 'POST',
+            headers: {
+              accept: 'application/json',
+              'content-type': 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTkyMjY2NzQ4MWFiMjA3ZDY0MjQ1MGIwZWZiNDYxZSIsInN1YiI6IjVlYTA5ZTZiYmU0YjM2MDAxYzU5NWExNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vhu0pPCiIwmtrpyOHdBlQid8HJJllaHthn1MERS_ANg'
+            },
+            body: JSON.stringify({media_type: 'movie', media_id: filme.id, watchlist: true})
+          };
+          
+          fetch('https://api.themoviedb.org/3/account/9269654/watchlist', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+
         let favoritos = JSON.parse (localStorage.getItem ("favoritos") ) || []
         favoritos.push(filme)
         localStorage.setItem("favoritos", JSON.stringify (favoritos))
     }
     function desfavoritar(){
         setFavorito(false)
+
+        const options = {
+            method: 'POST',
+            headers: {
+              accept: 'application/json',
+              'content-type': 'application/json',
+              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTkyMjY2NzQ4MWFiMjA3ZDY0MjQ1MGIwZWZiNDYxZSIsInN1YiI6IjVlYTA5ZTZiYmU0YjM2MDAxYzU5NWExNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vhu0pPCiIwmtrpyOHdBlQid8HJJllaHthn1MERS_ANg'
+            },
+            body: JSON.stringify({media_type: 'movie', media_id: filme.id, watchlist: false})
+          };
+          
+          fetch('https://api.themoviedb.org/3/account/9269654/watchlist', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+
         let favoritos = JSON.parse (localStorage.getItem ("favoritos") ) || []
         const favoritosAtualizado = favoritos.filter(f => f.id !== filme.id)
         localStorage.setItem("favoritos", JSON.stringify (favoritosAtualizado))
@@ -39,14 +72,14 @@ export default function Cardfilme({filme}){
                     onClick={favoritar}
                 />                
             }
-            <img className = "rounded h-56" src={filme.poster} alt="Poster do Filme" />
-            <span className="font-bold text-lg w-full line-clamp-1 text-center">{filme.titulo}</span>
+            <img className = "rounded h-56" src={image_url} alt="Poster do Filme" />
+            <span className="font-bold text-lg w-full line-clamp-1 text-center">{filme.title}</span>
             <div className="flex items-center gap-2">
                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-amber-500">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
             </svg>
         
-            <span className="text-slate-400">{filme.nota}</span>
+            <span className="text-slate-400">{filme.vote_average.toFixed(1)}</span>
             </div>
             <a href="#" className="bg-orange-400 w-full rounded text-center py-1 hover:bg-orange-900">Detalhes</a>
        </div>
