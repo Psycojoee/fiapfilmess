@@ -1,7 +1,7 @@
 "use client"
 
 import { serverLogout } from "@/actions/auth.js";
-import { Link } from "lucide";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function NavBar(){
