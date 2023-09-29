@@ -1,5 +1,7 @@
 import Cardfilme from "./componentes/Cardfilme.jsx";
+import NavBar from "./componentes/NavBar.jsx";
 import Titulo from "./componentes/titulo.jsx";
+
 
 async function carregarDados(){
   const url = "https://api.themoviedb.org/3/trending/tv/week?api_key=38579b7d46d2e9504a61120101b5a388&language=pt-br"
@@ -10,16 +12,14 @@ async function carregarDados(){
 
 export default async function Home() {
 
+
   const filmes = await carregarDados()
+
+
 
  return (
   <>
-   <nav className='bg-black-500 text-orange-400 p-2 flex gap-3 items-end'>
-    <h1 className='holtwood one sc font-bold'>NYA NIMES</h1>
-    <a href="./favoritos">Favoritos</a>
-    <h3 className='holtwood one sc font-bold'>Lançamentos</h3>
-    <h4 className='holtwood one sc font-bold'>Sobre</h4>
-   </nav>
+  <NavBar/>
 
    <Titulo>Em Alta</Titulo>
   <section className="flex flex-wrap gap-2">

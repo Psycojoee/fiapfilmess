@@ -1,3 +1,4 @@
+import NavBar from "../componentes/NavBar";
 import Cardfilme from "/src/app/componentes/Cardfilme.jsx";
 import Titulo from "/src/app/componentes/titulo.jsx";
 
@@ -22,10 +23,7 @@ export default async function Favoritos() {
 
  return (
   <>
-   <nav className='bg-black-500 text-orange-400 p-2 flex gap-3 items-end'>
-    <h1 className='holtwood one sc font-bold'>NYA NIMES</h1>
-    <a href="/favoritos">Favoritos</a>
-   </nav>
+  <NavBar/>
 
    <Titulo>Favoritos</Titulo>
 
