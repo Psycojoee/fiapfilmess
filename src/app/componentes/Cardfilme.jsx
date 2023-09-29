@@ -24,7 +24,7 @@ export default function Cardfilme({filme}){
               'content-type': 'application/json',
               Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTkyMjY2NzQ4MWFiMjA3ZDY0MjQ1MGIwZWZiNDYxZSIsInN1YiI6IjVlYTA5ZTZiYmU0YjM2MDAxYzU5NWExNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vhu0pPCiIwmtrpyOHdBlQid8HJJllaHthn1MERS_ANg'
             },
-            body: JSON.stringify({media_type: 'movie', media_id: filme.id, watchlist: true})
+            body: JSON.stringify({media_type: 'tv', media_id: filme.id, watchlist: true})
           };
           
           fetch('https://api.themoviedb.org/3/account/9269654/watchlist', options)
@@ -46,7 +46,7 @@ export default function Cardfilme({filme}){
               'content-type': 'application/json',
               Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTkyMjY2NzQ4MWFiMjA3ZDY0MjQ1MGIwZWZiNDYxZSIsInN1YiI6IjVlYTA5ZTZiYmU0YjM2MDAxYzU5NWExNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vhu0pPCiIwmtrpyOHdBlQid8HJJllaHthn1MERS_ANg'
             },
-            body: JSON.stringify({media_type: 'movie', media_id: filme.id, watchlist: false})
+            body: JSON.stringify({media_type: 'tv', media_id: filme.id, watchlist: false})
           };
           
           fetch('https://api.themoviedb.org/3/account/9269654/watchlist', options)

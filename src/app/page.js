@@ -2,7 +2,7 @@ import Cardfilme from "./componentes/Cardfilme.jsx";
 import Titulo from "./componentes/titulo.jsx";
 
 async function carregarDados(){
-  const url = "https://api.themoviedb.org/3/trending/movie/week?api_key=1e922667481ab207d642450b0efb461e&language=pt-br"
+  const url = "https://api.themoviedb.org/3/trending/tv/week?api_key=38579b7d46d2e9504a61120101b5a388&language=pt-br"
   const  response = await fetch(url)
   const json = await response.json()
   return json.results

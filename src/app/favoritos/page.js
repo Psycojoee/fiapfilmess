@@ -6,11 +6,11 @@ async function carregarDados(){
         method: 'GET',
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZTkyMjY2NzQ4MWFiMjA3ZDY0MjQ1MGIwZWZiNDYxZSIsInN1YiI6IjVlYTA5ZTZiYmU0YjM2MDAxYzU5NWExNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Vhu0pPCiIwmtrpyOHdBlQid8HJJllaHthn1MERS_ANg'
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzODU3OWI3ZDQ2ZDJlOTUwNGE2MTEyMDEwMWI1YTM4OCIsInN1YiI6IjY1MDQ0MGFmNjNhYWQyMDBjNDRmMDUzYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.VncJ9VlrJeSVNgFUt_cWa8gjKKcUhpBs1-IkdaJee28'
         }
       };
       
-      const response = await fetch('https://api.themoviedb.org/3/account/9269654/watchlist/movies?language=pt-br&page=1&sort_by=created_at.asc', options)
+      const response = await fetch('https://api.themoviedb.org/3/account/9269654/watchlist/tv?language=pt-br&page=1&sort_by=created_at.asc', options)
       const json = await response.json()
       console.log(json)
       return json.results
